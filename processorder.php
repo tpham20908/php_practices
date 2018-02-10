@@ -22,7 +22,13 @@
         echo htmlspecialchars($sparkqty)." spark plugs.<br/>";
         
         $totalqty = $tireqty + $oilqty + $sparkqty;
-        echo "<p>Items ordered: ".$totalqty."<br/>";
+        
+        if ($totalqty === 0) {
+          echo "You did not order anything on the previous page.";
+        }
+        else {
+          echo "<p>Items ordered: ".$totalqty."<br/>";
+        }
         
         $totalamount = $tireqty * TIREPRICE + $oilqty * OILPRICE + $sparkqty * SPARKPRICE;
         echo "Subtotal: $".$totalamount."<br/>";
