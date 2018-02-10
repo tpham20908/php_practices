@@ -20,6 +20,16 @@
         echo htmlspecialchars($tireqty)." tires.<br/>";
         echo htmlspecialchars($oilqty)." bottles of oil.<br/>";
         echo htmlspecialchars($sparkqty)." spark plugs.<br/>";
+        
+        $totalqty = $tireqty + $oilqty + $sparkqty;
+        echo "<p>Items ordered: ".$totalqty."<br/>";
+        
+        $totalamount = $tireqty * TIREPRICE + $oilqty * OILPRICE + $sparkqty * SPARKPRICE;
+        echo "Subtotal: $".$totalamount."<br/>";
+        
+        $taxrate = 0.15;
+        $totalamount = $totalamount * (1 + $taxrate);
+        echo "Total amount including tax: $".$totalamount."</p>";
     ?>
     
   </body>
